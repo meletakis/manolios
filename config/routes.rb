@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'user_teams/index'
+
   devise_for :users,
     path_names: {
       sign_in: "login",
