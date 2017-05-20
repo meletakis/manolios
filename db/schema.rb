@@ -41,11 +41,11 @@ ActiveRecord::Schema.define(version: 20170520120204) do
   add_index "user_order_costs", ["user_id"], name: "index_user_order_costs_on_user_id"
 
   create_table "user_team_balances", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "team_id"
     t.decimal  "balance"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "user_id"
-    t.integer  "team_id"
   end
 
   add_index "user_team_balances", ["team_id"], name: "index_user_team_balances_on_team_id"
