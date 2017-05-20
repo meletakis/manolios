@@ -1,2 +1,16 @@
-<h1>UserTeams#index</h1>
-<p>Find me in app/views/user_teams/index.html.erb</p>
+<h2> Your Teams</h2>
+
+<table>
+  <tr>
+    <th>Team</th>
+    <th>Team Balance</th>
+    <th>Your Balance</th>
+  </tr>
+  <% @teams.each do |team| %>
+    <tr>
+      <td> <%= team.name %> </td>
+      <td> <%= team.balance %> </td>
+      <td> <%= team.user_team_balances.first.balance %> </td>
+    </tr>
+  <% end %>
+</table>
