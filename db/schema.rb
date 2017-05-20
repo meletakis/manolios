@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170520110814) do
+ActiveRecord::Schema.define(version: 20170520111020) do
 
   create_table "teams", force: :cascade do |t|
     t.string   "name"
+    t.decimal  "balance"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_team_balances", force: :cascade do |t|
     t.decimal  "balance"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
