@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'user_teams/index'
+  get 'team/index'
 
   devise_for :users,
     path_names: {
@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       sign_out: "logout"
     }
 
-  root 'welcome#index'
+  root 'team#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

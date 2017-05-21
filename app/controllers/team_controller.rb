@@ -1,4 +1,4 @@
-class UserTeamsController < ApplicationController
+class TeamController < ApplicationController
   before_action :authenticate_user!
 
   def index
