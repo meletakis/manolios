@@ -3,8 +3,12 @@ class TeamController < ApplicationController
 
   def index
     @teams = User.find(current_user.id).teams
-    @user_team_balances = UserTeamBalance.find(current_user.id)
   end
+
+  def show
+    @team = Team.find(params[:id])
+  end
+
   def new
     @team = Team.new
   end
