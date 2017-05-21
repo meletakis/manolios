@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'team/index'
+
+  resources :team
 
   devise_for :users,
     path_names: {
