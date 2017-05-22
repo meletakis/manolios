@@ -4,7 +4,7 @@
     <%= f.text_field :name %>
   </div>
   <div class="form-group">
-    <%=collection_check_boxes(:team, :user_ids, User.all, :id, :email, :item_wrapper_class => 'inline') %>
+    <%=collection_check_boxes(:team, :user_ids, @users, :id, :email, :item_wrapper_class => 'inline') %>
   </div>
     <%= f.submit %>
 <% end %>

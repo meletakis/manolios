@@ -11,10 +11,11 @@ class TeamController < ApplicationController
 
   def new
     @team = Team.new
+    @users = User.all_except(current_user)
   end
 
   def create
-    @team = Team.new(team_params)
+    @team = current_user.teams.create(team_params)
     if @team.save
       redirect_to @team
     else
