@@ -2,7 +2,7 @@ class Team < ActiveRecord::Base
   validates :name, presence: true
   before_create :default_balance
 
-  has_many :user_team_balances
+  has_many :user_team_balances, dependent: :delete_all
   has_many :users, through: :user_team_balances
   has_many :orders
 

@@ -1,0 +1,32 @@
+SkusTable.alertForDuplicateShop = function(selectedSkuIds) {
+    var that = this;
+
+    // TODO this.disableAlertForDuplicateShop(selectedSkuTr);
+
+    var shop_ids = [];
+    var dup_ids = [];
+
+    var found = false;
+    var span_class = 'warning';
+    selectedSkuIds.forEach(function(sku) {
+        sku_shop_ids = $('tr[data-id="' + sku + '"]').map(function(idx, e) {
+            return $(e).data('shop-ids');
+        }); //get shop-ids from table row
+
+        for(idx=0; idx < sku_shop_ids.length; idx=idx+1) {
+            found = (shop_ids.indexOf(sku_shop_ids[idx]) >= 0)
+            if(found) {
+                console.log("SAME SHOP IN SKUS");
+                dup_ids.push(sku_shop_ids[idx]);
+            }else{
+                shop_ids.push(sku_shop_ids[idx]);
+            }
+        }
+        console.log("ALL SHOPS", shop_ids);
+
+    });
+
+javascripts/earth/toggler_table.js
+
++data-shop-ids="<%= sku.shop_ids %>"
+skus_table_row.html
