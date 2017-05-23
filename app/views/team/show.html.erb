@@ -7,3 +7,10 @@
   <strong>Balance:</strong>
   <%= @team.balance %>
 </p>
+
+<p> 
+	<%= link_to "Edit", edit_team_path(@team) %> |
+	<%= link_to 'Destroy', team_path(@team),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %> 
+</p>

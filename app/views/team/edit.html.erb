@@ -1,18 +1,18 @@
-<h1>New Team</h1>
+<h1>Edit <%= @team.name %></h1>
 
-<%= form_for :team, url: team_index_path  do |f| %>
-
+<%= form_for (@team) do |f| %>
   <div class="form-group">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-
-  <h3> Select users </h3>
+  <h2> Select users </h2>
   <div class="form-group">
     <%=collection_check_boxes(:team, :user_ids, @users, :id, :email, :item_wrapper_class => 'inline') %>
   </div>
 
     <%= f.submit %>
 <% end %>
+
+<%= link_to 'Back', team_path(:id=>@team.id) %>
 
 
