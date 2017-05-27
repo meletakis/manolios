@@ -16,7 +16,7 @@
     <tr>
       <td> <%= link_to team.name, team_path(:id=>team.id) %> </td>
       <td> <%= team.balance %> </td>
-      <td> <%= team.user_team_balances.first.balance %> </td>
+      <td> <%= current_user_balance(team) %> </td>
     </tr>
   <% end %>
 </table>
