@@ -1,11 +1,19 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+rick:
+  user: rick
+  cost: 2.30
 
-one:
-  user_id: 
-  team_id: 
-  cost: 9.99
+morty:
+  user: rick
+  cost: 2.10
 
-two:
-  user_id: 
-  team_id: 
-  cost: 9.99
+blossom:
+  user: blossom
+  cost: 1.5
+
+bubbles:
+  user: bubbles
+  cost: 4.15
+
+buttercup:
+  user: buttercup
+  cost: 4.34

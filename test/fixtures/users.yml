@@ -1,11 +1,29 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+rick:
+  first_name: Rick
+  last_name: Sanchez
+  email: rick@rm.com
+  encrypted_password: <%= User.new.send(:password_digest, '1234') %>
 
-one:
-  first_name: MyString
-  last_name: MyString
-  email: MyString
+morty:
+  first_name: Morty
+  last_name: Smith
+  email: morty@rm.com
+  encrypted_password: <%= User.new.send(:password_digest, '1234') %>
 
-two:
-  first_name: MyString
-  last_name: MyString
-  email: MyString
+blossom:
+  first_name: Blossom
+  last_name: Powerpuff
+  email: blossom@ppg.com
+  encrypted_password: <%= User.new.send(:password_digest, '1234') %>
+
+bubbles:
+  first_name: Bubbles
+  last_name: Powerpuff
+  email: bubbles@ppg.com
+  encrypted_password: <%= User.new.send(:password_digest, '1234') %>
+
+buttercup:
+  first_name: Buttercup
+  last_name: Powerpuff
+  email: buttercup@ppg.com
+  encrypted_password: <%= User.new.send(:password_digest, '1234') %>
