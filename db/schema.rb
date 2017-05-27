@@ -43,9 +43,9 @@ ActiveRecord::Schema.define(version: 20170520120204) do
   create_table "user_team_balances", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "team_id"
-    t.decimal  "balance"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.decimal  "balance",    default: 0.0
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   add_index "user_team_balances", ["team_id"], name: "index_user_team_balances_on_team_id"
