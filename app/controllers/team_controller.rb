@@ -35,20 +35,19 @@ class TeamController < ApplicationController
       current_team.user_team_balances.build(:user => current_user)
       redirect_to @team
     else
-      render "edit" 
+      render "edit"
     end
   end
 
   def destroy
     current_team
     @team.destroy
- 
     redirect_to root_path
   end
 
   private
     def team_params
-      params.require(:team).permit(:name, :user_ids => [])
+      params.require(:team).permit(:name, user_ids: [])
     end
 
     def all_users_except_current
