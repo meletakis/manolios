@@ -1,22 +1,24 @@
-<h2> Your Teams
-  <div class="pull-right">
-    <button type="button" class="btn btn-success">
-      <%= link_to 'New Team', new_team_path %>
-    </button>
-  </div>
-</h2>
+<h2 class="page-header">Your Teams</h2>
 
 <table class="table">
-  <tr>
-    <th>Team</th>
-    <th>Team Balance</th>
-    <th>Your Balance</th>
-  </tr>
-  <% @teams.each do |team| %>
+  <thead>
     <tr>
-      <td> <%= link_to team.name, team_path(:id=>team.id) %> </td>
-      <td> <%= team.balance %> </td>
-      <td> <%= current_user_balance(team) %> </td>
+      <th>Team</th>
+      <th>Team Balance</th>
+      <th>Your Balance</th>
     </tr>
-  <% end %>
+  </thead>
+  <tbody>
+    <% @teams.each do |team| %>
+      <tr>
+        <td><%= link_to team.name, team_path(id: team.id) %></td>
+        <td><%= team.balance %></td>
+        <td><%= current_user_balance(team) %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
+
+<div class="pull-right clearfix">
+  <%= link_to "New Team", new_team_path, class: "btn btn-default" %>
+</div>
