@@ -15,9 +15,9 @@ ActiveRecord::Schema.define(version: 20170520120204) do
 
   create_table "orders", force: :cascade do |t|
     t.integer  "team_id"
-    t.decimal  "cost"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.decimal  "cost",       default: 0.0
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   add_index "orders", ["team_id"], name: "index_orders_on_team_id"
@@ -32,9 +32,9 @@ ActiveRecord::Schema.define(version: 20170520120204) do
   create_table "user_order_costs", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "order_id"
-    t.decimal  "cost"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.decimal  "cost",       default: 0.0
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   add_index "user_order_costs", ["order_id"], name: "index_user_order_costs_on_order_id"
