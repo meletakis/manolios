@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :team
+  resources :orders
 
   devise_for :users,
     path_names: {

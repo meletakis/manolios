@@ -8,6 +8,7 @@ class TeamController < ApplicationController
 
   def show
     current_team
+    @orders = current_team.orders
   end
 
   def new
