@@ -4,7 +4,8 @@ rick:
   cost: 2.30
 
 morty:
-  user: rick
+  user: morty
+  order: rickandmorty
   cost: 2.10
 
 blossom:

@@ -1,0 +1,20 @@
+<h3>
+  <%= @order.team.name %> / <%= l(@order.created_at, format: :short) %> - <%= @order.cost %> €
+</h3>
+
+<table class="table">
+  <thead>
+    <tr>
+        <% @order.team.users.each do |user| %>
+      		<th> <%= user.first_name %> <%=user.last_name %> </th>
+  		<% end %>
+    </tr>
+  </thead>
+  <tbody>
+  	<tr>
+        <% @order.team.users.each do |user| %>
+      		<th> <%= order_cost(user) %> </th>
+  		<% end %>
+    </tr>
+  </tbody>
+</table>
