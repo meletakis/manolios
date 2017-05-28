@@ -45,3 +45,6 @@ bower.json
 
 #Ignore rubymine files
 .idea
+
+#Rake tasks
+.rake*
