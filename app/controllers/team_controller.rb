@@ -1,6 +1,6 @@
 class TeamController < ApplicationController
   before_action :authenticate_user!
-  helper_method :current_user_balance
+  helper_method :current_user_balance, :current_user_cost
 
   def index
     @teams = User.find(current_user.id).teams
@@ -61,6 +61,10 @@ class TeamController < ApplicationController
 
     def current_user_balance(team)
       team.user_team_balances.find_by(user: current_user).balance
+    end
+
+    def current_user_cost(order)
+      order.user_order_costs.find_by(user: current_user).cost
     end
 
 end
