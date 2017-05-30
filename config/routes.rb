@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :team
-  resources :orders
+  resources :team do
+    resources :orders
+  end
 
   devise_for :users,
     path_names: {
