@@ -20,7 +20,7 @@
   <tbody>
     <% @orders.each do |order| %>
       <tr>
-        <td><%= link_to l(order.created_at, format: :short), order_path(id: order.id) %></td>
+        <td><%= link_to l(order.created_at, format: :short), team_order_path(@team, order) %></td>
         <td><%= order.cost %></td>
         <td><%= current_user_cost(order) %></td>
       </tr>
@@ -29,6 +29,6 @@
 </table>
 
 <div class="pull-right clearfix">
-  <%= link_to "New Order", new_order_path, class: "btn btn-default" %>
+  <%= link_to "New Order", new_team_order_path(@team), class: "btn btn-default" %>
 </div>
 
