@@ -47,24 +47,25 @@ class TeamController < ApplicationController
   end
 
   private
-    def team_params
-      params.require(:team).permit(:name, user_ids: [])
-    end
 
-    def all_users_except_current
-      @users = User.all_except(current_user)
-    end
+  def team_params
+    params.require(:team).permit(:name, user_ids: [])
+  end
 
-    def current_team
-      @team = Team.find(params[:id])
-    end
+  def all_users_except_current
+    @users = User.all_except(current_user)
+  end
 
-    def current_user_balance(team)
-      team.user_team_balances.find_by(user: current_user).balance
-    end
+  def current_team
+    @team = Team.find(params[:id])
+  end
 
-    def current_user_cost(order)
-      order.user_order_costs.find_by(user: current_user).cost
-    end
+  def current_user_balance(team)
+    team.user_team_balances.find_by(user: current_user).balance
+  end
+
+  def current_user_cost(order)
+    order.user_order_costs.find_by(user: current_user).cost
+  end
 
 end
