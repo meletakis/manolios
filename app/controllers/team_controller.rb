@@ -3,22 +3,20 @@ class TeamController < ApplicationController
   helper_method :current_user_balance, :current_user_cost
 
   def index
-    @teams = User.find(current_user.id).teams
+    @teams = current_user.teams
   end
 
   def show
-    current_team
     @orders = current_team.orders
   end
 
   def new
-    @team = Team.new
     all_users_except_current
   end
 
   def edit
     current_team
-    all_users_except_current
+    @users = User.all
   end
 
   def create
@@ -26,23 +24,22 @@ class TeamController < ApplicationController
     if @team.save
       redirect_to @team
     else
+      all_users_except_current
       render "new"
     end
   end
 
   def update
-    current_team
     if current_team.update(team_params)
-      current_team.user_team_balances.build(:user => current_user)
       redirect_to @team
     else
+      all_users_except_current
       render "edit"
     end
   end
 
   def destroy
-    current_team
-    @team.destroy
+    current_team.destroy
     redirect_to root_path
   end
 
@@ -53,19 +50,20 @@ class TeamController < ApplicationController
   end
 
   def all_users_except_current
-    @users = User.all_except(current_user)
+    @users ||= User.all_except(current_user)
   end
 
   def current_team
-    @team = Team.find(params[:id])
+    @team ||= Team.find(params[:id])
   end
 
   def current_user_balance(team)
-    team.user_team_balances.find_by(user: current_user).balance
+    team.user_team_balances.find_by(current_user.id).balance
   end
 
   def current_user_cost(order)
-    order.user_order_costs.find_by(user: current_user).cost
+    user_order_costs = order.user_order_costs.find_by(current_user.id)
+    user_order_costs ? user_order_costs.cost : "0.00"
   end
 
 end
