@@ -1,21 +1,24 @@
 rick:
   user: rick
-  order: rickandmorty
+  order: coffee
   cost: 2.30
 
 morty:
   user: morty
-  order: rickandmorty
+  order: coffee
   cost: 2.10
 
 blossom:
   user: blossom
+  order: smoothies
   cost: 1.5
 
 bubbles:
   user: bubbles
+  order: smoothies
   cost: 4.15
 
 buttercup:
   user: buttercup
+  order: smoothies
   cost: 4.34

@@ -1,11 +1,11 @@
 <h3>
 	<%= @team.name %> - <%= @team.balance %> €
 </h3>
-<p> 
+<p>
 	<%= link_to "Edit", edit_team_path(@team) %> |
-	<%= link_to 'Destroy', team_path(@team),
+	<%= link_to "Destroy", team_path(@team),
               method: :delete,
-              data: { confirm: 'Are you sure?' } %> 
+              data: { confirm: "Are you sure?" } %>
 </p>
 
 <h3> Orders </h3>
@@ -31,4 +31,3 @@
 <div class="pull-right clearfix">
   <%= link_to "New Order", new_order_path, class: "btn btn-default" %>
 </div>
-
