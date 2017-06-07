@@ -1,0 +1,10 @@
+<h1 class="page-header">New Order</h1>
+
+<%= form_for [@team,@order] do |f| %>
+
+  <% @team.users.each do |user| %>
+    <%= user.email %>
+  <% end %>
+
+  <%= f.submit class:"btn btn-default" %>
+<% end %>

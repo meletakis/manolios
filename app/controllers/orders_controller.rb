@@ -4,56 +4,41 @@ class OrdersController < ApplicationController
   helper_method :order_cost
 
   def show
-  	current_order
   end
 
   def new
-    @order = Order.new
-    @team_users = current_team.users
-  end
-
-  def edit
-    current_team
-    all_users_except_current
+    @order = @team.orders.build
   end
 
   def create
-    @order = Order.create(order_params)
+    @order = @team.orders.build(order_params)
     if @order.save
-      redirect_to @order
+      redirect_to [@team, @order]
     else
       render "new"
     end
   end
 
-  def update
-    current_team
-    if current_team.update(team_params)
-      current_team.user_team_balances.build(:user => current_user)
-      redirect_to @order
-    else
-      render "edit"
-    end
-  end
-
   def destroy
-    current_team
     @order.destroy
     redirect_to root_path
   end
 
   private
-    def team_params
-      params.require(:team).permit(:name, user_ids: [])
+
+    def order_params
+      params.require(:order).permit()
     end
 
-  private
+    def fetch_order
+      @order = Order.find(params[:id])
+    end
 
-  def current_order
-    @order = Order.find(params[:id])
-  end
+    def fetch_team
+      @team = Team.find(params[:team_id])
+    end
 
-  def order_cost(user)
-    current_order.user_order_costs.find_by(user: user).cost
-  end
+    def order_cost(user)
+      @order.user_order_costs.find_by(user: user).cost
+    end
 end
